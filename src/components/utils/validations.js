@@ -46,26 +46,25 @@ const validateEmail = (email, idElement) => {
 };
 
 const validateInputs = (data) => {
-    let result = false;
-    result = isEmpty(data.day, "#day-datetime");
-    result = isEmpty(data.start, "#start-datetime");
-    result = isEmpty(data.end, "#end-datetime");
-    result = validateDate(data.day, "#day-datetime");
-    result = validateDate(data.start, "#start-datetime");
-    result = validateDate(data.end, "#end-datetime");
-    result = isEmpty(data.nombre, "#fname-field");
-    result = isEmpty(data.apellido, "#lname-field");
-    result = isEmpty(data.email, "#email-field");
-    result = validateEmail(data.email, "#email-field");
-    result = isEmpty(data.patente, "#license-plate-field");
-    result = isEmpty(data.marca, "#car-brand-field");
-    result = isEmpty(data.modelo, "#car-model-field");
-    if (!result) {
-        document.querySelector("#warning-message").textContent = "Faltan campos por completar y/o el formato no es valido";
-    } else {
+    if (isEmpty(data.day, "#day-datetime") &&
+        isEmpty(data.start, "#start-datetime") &&
+        isEmpty(data.end, "#end-datetime") &&
+        validateDate(data.day, "#day-datetime") &&
+        validateDate(data.start, "#start-datetime") &&
+        validateDate(data.end, "#end-datetime") &&
+        isEmpty(data.nombre, "#fname-field") &&
+        isEmpty(data.apellido, "#lname-field") &&
+        isEmpty(data.email, "#email-field") &&
+        validateEmail(data.email, "#email-field") &&
+        isEmpty(data.patente, "#license-plate-field") &&
+        isEmpty(data.marca, "#car-brand-field") &&
+        isEmpty(data.modelo, "#car-model-field")) {
         document.querySelector("#warning-message").textContent = "";
+        return true;
+    } else {
+        document.querySelector("#warning-message").textContent = "Faltan campos por completar y/o el formato no es valido";
+        return false;
     }
-    return result;
 };
 
 export default {
