@@ -1,0 +1,36 @@
+@import '../../common_styles/grid.scss';
+
+$dark_purple: rgb(64, 61, 93);
+$dark_blue: #2C3E50;
+
+html {
+    &::-webkit-scrollbar {
+        background-color: silver;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $dark_blue;
+        border-radius: 20px;
+    }
+}
+
+.fc-scroller.fc-scroller-liquid-absolute {
+    &::-webkit-scrollbar {
+        background-color: silver;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $dark_blue;
+        border-radius: 20px;
+    }
+}
+
+.full-calendar-wrapper {
+    position: relative;
+    z-index: 0
+}
+
+.event-info {
+    margin-right: 50px;
+    font-weight: bold;
+}
